@@ -81,10 +81,10 @@ def
 # 様々なlist型
 
 |type|purpose|example|
-|-|-|-|
+|---|---|---|
 |list.append()|
 |list.extend() 
-|list.insert(, 
+|list.insert(,) 
 |list.remove() 
 |list.pop([])  
 |list.clear()  
@@ -98,10 +98,10 @@ del文:
 # Sequenceデータ型
 Sequenceデータ型: list, tuple, rangeの  
 
-|type|purpose|example|  
-|-|-|-|  
-|x in s|sの中にxが含まれているとTrue、なければFalse|a in banana|  
-|x not in s|  
+|Type|Purpose|Example|Result|  
+|---|---|---|---| 
+|x in s|sの中にxが含まれているとTrue、なければFalse|a in banana|True|  
+|x not in s|sの中にxが含まれていないとTrue、いるとFalse|a not in banana|False|  
 |s + t|  
 |s * n|  
 |s[i]|  
