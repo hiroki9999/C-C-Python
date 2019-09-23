@@ -79,6 +79,7 @@ def
 3.任意引数値リスト  
 ラムダ式  
 # 様々なlist型
+
 |type|purpose|example|
 |-|-|-|
 |list.append()|
@@ -94,20 +95,21 @@ def
 |list.copy()   
 
 del文:  
-Sequenceデータ型
+# Sequenceデータ型
 Sequenceデータ型: list, tuple, rangeの  
-|type      |purpose                               |example   |  
-|----------|--------------------------------------|----------|  
-|x in s    |sの中にxが含まれているとTrue、なければFalse|a in banana|  
+
+|type|purpose|example|  
+|-|-|-|  
+|x in s|sの中にxが含まれているとTrue、なければFalse|a in banana|  
 |x not in s|  
-|s + t     |  
-|s * n     |  
-|s[i]      |  
-|s[i:j]    |  
-|s[i:j:k]  |  
-|len(s)    |  
-|min(s)    |  
-|max(s)    |  
+|s + t|  
+|s * n|  
+|s[i]|  
+|s[i:j]|  
+|s[i:j:k]|  
+|len(s)|  
+|min(s)|  
+|max(s)|  
 |s.index(x[,i[,j]])|  
 |s.count(x)|  
 
