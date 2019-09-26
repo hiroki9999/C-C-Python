@@ -163,8 +163,11 @@ l[0]
 モジュールとは先に説明したようにスクリプトを呼び出すための目次のようなものです。  
 目次を呼び出すためには目次内の内容がなくてはなりません。  
 import: モジュール内でスクリプトを見つけ出し、プログラム内で定義する。  
-from import: fromでモジュールを見つけ出しimportで内容を確定？*
-をつけるとモジュール内のものがインポートされる。  
+from import: fromでモジュールを見つけ出しimportで内容を複数選択が可能。  
+importの後に*をつけるとモジュール内のもの全てがインポートされる。（未知の名前が定義されてしまうため注意が必要。）  
+
+import as: importした内容をasの後に書く名前でも定義できるようにしたもの。
+from import as も同様に適宜できる。  
 
 dir()関数: モジュール内の名前の定義を調べる    
 パッケージ: モジュールの名前を構造化する手段。複数のプログラマが協力するときに有効  
@@ -254,9 +257,12 @@ global宣言: グローバル宣言とはgloval文内で変数を定義するこ
 
 
 参考文献
-https://www.otsuka-shokai.co.jp/words/interpreter.html 2019/09/22 L14-22
-http://blog.jojo.jp/?eid=1424790 2019/09/24 L57-60
-https://snowtree-injune.com/2018/09/14/exception/#toc34 2019/09/25 L212-216
-https://snowtree-injune.com/2018/12/13/global-nonlocal/#toc2 2019/09/25 L223-224
-https://pg-chain.com/python-module-class-method 2019/09/26 L151-179
-
+https://www.otsuka-shokai.co.jp/words/interpreter.html 2019/09/22 L14-22  
+http://blog.jojo.jp/?eid=1424790 2019/09/24 L57-60  
+https://eng-entrance.com/what-oop#i 2019/09/26 L151-170
+https://pg-chain.com/python-module-class-method 2019/09/26 L151-179  
+https://snowtree-injune.com/2018/09/14/exception/#toc34 2019/09/25 L212-216  
+https://snowtree-injune.com/2018/12/13/global-nonlocal/#toc2 2019/09/25 L223-224  
+  
+ 
+  
