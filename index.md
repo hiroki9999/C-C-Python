@@ -242,10 +242,12 @@ with文を使うためには対応したクラスを作る必要があります�
   
 # エラーと例外
 エラーには構文エラーsyntax errorと例外exceptionの二種類が存在します。  
-syntax errorでは矢印で構文の間違いを示します。  
-exceptionではsyntax error以外のエラーを示しています。主な型は数字をゼロで割ったときに表示されるZeroDivisionErrorや定義されていない名前が使われたときのNameError、数字の型が異なったときのTypeErrorがあります。  
+syntax errorでは基本的なプログラム構文の間違いを示します。矢印によって構文の間違いの位置を示されているためどの部分がsyntax errorなのかを判断することができます。  
+exceptionではsyntax error以外の全てのエラーを示しています。たくさんの種類のexceptionが存在し、主な型は数字をゼロで割ったときに表示されるZeroDivisionErrorや定義されていない名前が使われたときのNameError、数字の型が異なったときのTypeErrorがあります。  
   
-また、Pythonではうえで示したような例外を処理するためにtry文を使ってプログラムを書くことができます。  
+しかし、pythonではプログラム上でexceptionを起こすことが正しい場合も存在します。ではexceptionが起こった時にはどの様に処理することが正しいのでしょうか。     
+  
+Pythonではexceptionを処理するためにtry文を使ってプログラムを書くことができます。  
 try文では例外処理を正すことが目的であるので基本的にループを利用します。  
 >>> while True:  
 ...     try:  
@@ -253,9 +255,12 @@ try文では例外処理を正すことが目的であるので基本的にル�
 ...         break  
 ...     except ValueError:  
 ...         print("Oops!  That was no valid number.  Try again...")  
+...     else:  
+...         print("it's fine!")   
   
-try文には複数のexceptをつけることができ、実行するプログラムの指定を行うことができる。  
-また、if文と同様にelseを用いることができるため例外処理が実行されないときの対応が可能。  
+try文には複数のexcept（例外処理）をつけることができ、実行するプログラムの指定を行うことができます。  
+
+また、try文ではif文と同様にelseを用いることができるためexceptionが起こらないときの対応が可能です。  
   
 raise文: 例外を意図的に発生させることができる  
 →基本的に大きなプログラムなどを作ったときに例外を処理するためのクラスを作ってその中で定義するときに例外クラスを使用する。  
