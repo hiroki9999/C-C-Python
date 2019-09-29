@@ -219,28 +219,48 @@ str.zfill(): 左側をゼロ詰め
 　　
 ファイルの読み書き
 open(,): ファイルオブジェクトを開く。open(ファイル名,mode)with文を使うのがおすすめ
+|Mode|Purpose|
+|---|---|
+|r|読み取り（デフォルト）|
+|w|書き込み|
+|a|生成？|
+|b|バイナリモード|
+|t|テキストモード（デフォルト）|
+|+|読み取り＋書き取り|
 
+with文: ファイルのオープンとクローズの処理を簡略化してくれる  
+f = open("sample.txt", "r")
+print(f.read())
+f.close()
+↓
+with open("sample.txt", "r") as f:
+    print(f.read())
+
+with文を使うためには対応したクラスを作る必要があります。  
+対応したクラスは_enter_()メソッドと_exit_()メソッドを定義することで作ることができます。  
+  
+  
 # エラーと例外
 エラーには構文エラーsyntax errorと例外exceptionの二種類が存在します。  
-syntax errorでは矢印で構文の間違いを示します。
-exceptionではsyntax error以外のエラーを示しています。主な型は数字をゼロで割ったときに表示されるZeroDivisionErrorや定義されていない名前が使われたときのNameError、数字の型が異なったときのTypeErrorがあります。
-
+syntax errorでは矢印で構文の間違いを示します。  
+exceptionではsyntax error以外のエラーを示しています。主な型は数字をゼロで割ったときに表示されるZeroDivisionErrorや定義されていない名前が使われたときのNameError、数字の型が異なったときのTypeErrorがあります。  
+  
 また、Pythonではうえで示したような例外を処理するためにtry文を使ってプログラムを書くことができます。  
-try文では例外処理を正すことが目的であるので基本的にループを利用します。
->>> while True:
-...     try:
-...         x = int(input("Please enter a number: "))
-...         break
-...     except ValueError:
-...         print("Oops!  That was no valid number.  Try again...")
-
-try文には複数のexceptをつけることができ、実行するプログラムの指定を行うことができる。
-また、if文と同様にelseを用いることができるため例外処理が実行されないときの対応が可能。
-
+try文では例外処理を正すことが目的であるので基本的にループを利用します。  
+>>> while True:  
+...     try:  
+...         x = int(input("Please enter a number: "))  
+...         break  
+...     except ValueError:  
+...         print("Oops!  That was no valid number.  Try again...")  
+  
+try文には複数のexceptをつけることができ、実行するプログラムの指定を行うことができる。  
+また、if文と同様にelseを用いることができるため例外処理が実行されないときの対応が可能。  
+  
 raise文: 例外を意図的に発生させることができる  
 →基本的に大きなプログラムなどを作ったときに例外を処理するためのクラスを作ってその中で定義するときに例外クラスを使用する。  
-
-finally節: try文にはexcept,elseの他にfinally説を使用することができます。この節では名前の通り最後に処理するプログラムを支持することができます。
+  
+finally節: try文にはexcept,elseの他にfinally説を使用することができます。この節では名前の通り最後に処理するプログラムを支持することができます。  
 
 # クラス
 属性に関してはよくわかりません。読み取り属性と書き込み属性の作成が可能なようなのでクラスとはまた違ったカテゴライズできるものという認識を持っています。
@@ -264,6 +284,7 @@ https://eng-entrance.com/what-oop#i 2019/09/26 L151-170
 https://pg-chain.com/python-module-class-method 2019/09/26 L151-179  
 https://snowtree-injune.com/2018/09/14/exception/#toc34 2019/09/25 L212-216  
 https://snowtree-injune.com/2018/12/13/global-nonlocal/#toc2 2019/09/25 L223-224  
+https://www.sejuku.net/blog/24672 2019/09/27 L231-240
   
  
   
