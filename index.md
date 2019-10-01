@@ -258,23 +258,53 @@ try文では例外処理を正すことが目的であるので基本的にル�
 ...     else:  
 ...         print("it's fine!")   
   
-try文には複数のexcept（例外処理）をつけることができ、実行するプログラムの指定を行うことができます。  
+try文には複数のexcept（例外処理）をつけることができ、実行するプログラムの指定を行うことができexceptは例外の名称を指定してもしなくてもます。  
 
 また、try文ではif文と同様にelseを用いることができるためexceptionが起こらないときの対応が可能です。  
   
-raise文: 例外を意図的に発生させることができる  
+raise文: 例外を意図的に発生させることができる。except節の中で引数のないraiseを用いることでexceptが再送出されます。つまり、定義したexceptionがもう一度発生します。
+try:    
+    raise ZeroDivisionError('ゼロによる除算')  
+except ZeroDivisionError as eee:  
+    print('eee:',eee)  
+　　 raise  
+  
+→eee: ゼロによる除算  
+Traceback (most recent call last):  
+  File "/Users/hiroki/Documents/GitHub/mypythonproject/test2.py", line 2, in <module>  
+    raise ZeroDivisionError('ゼロによる除算')  
+ZeroDivisionError: ゼロによる除算    
+   
+  
+try:    
+    raise ZeroDivisionError('ゼロによる除算')  
+except ZeroDivisionError as eee:  
+    print('eee:',eee)  
+
+→eee: ゼロによる除算  
+    
 →基本的に大きなプログラムなどを作ったときに例外を処理するためのクラスを作ってその中で定義するときに例外クラスを使用する。  
   
 finally節: try文にはexcept,elseの他にfinally説を使用することができます。この節では名前の通り最後に処理するプログラムを支持することができます。  
 
 # クラス
-属性に関してはよくわかりません。読み取り属性と書き込み属性の作成が可能なようなのでクラスとはまた違ったカテゴライズできるものという認識を持っています。
 
+属性とはmodname.funcnameなどの"."ドットに続く名前のことを指しドットよりも前の名前をオブジェクトと呼んでいます。  
+属性には二つの種類（読み取り属性と書き込み）属性が存在し
+組み込みの名前が入った名前空間
+モジュールのグローバルな名前空間
+ところで名前空間とはどの様なものなのでしょうか。名前空間とは簡単に言うと名前がたくさん入った箱のことです。
+例えば母親に手紙を書く時に住所を書かなくては手紙は届きません。東京都という大きな箱の中の文京区のどこに住むこの人と手紙を届けるためには個人を特定するための住所が必要です。  
+Pythoでも同じ様に名前空間の中に入っている名前を"定義した名前空間.名前"と入力することでのみ属性参照をすることが可能になります。  
+また、Pythonでは自分で定義することができない定数というものが存在します。
+その定数とはNone,True,False,Notlmplemented,Ellipse,_debug_の六種類です。  
 nonlocal宣言: nonlocal宣言とはすぐ外側で定義されている変数をnonlocal文内で定義されている変数に設定すること
 global宣言: グローバル宣言とはgloval文内で変数を定義することによってその変数がglobal文内の定義をベースとして持つこと
 
 クラスの定義
-メソッドオブジェクトは他のメソッドを呼び出すための記号のようなものです。
+メソッドオブジェクトは他のメソッドを呼び出すための記号のようなものです。  
+
+
 
 # イテレータiteratprとジェネレータgenerator
 
@@ -285,11 +315,11 @@ global宣言: グローバル宣言とはgloval文内で変数を定義するこ
 参考文献
 https://www.otsuka-shokai.co.jp/words/interpreter.html 2019/09/22 L14-22  
 http://blog.jojo.jp/?eid=1424790 2019/09/24 L57-60  
-https://eng-entrance.com/what-oop#i 2019/09/26 L151-170
+https://eng-entrance.com/what-oop#i 2019/09/26 L151-170  
 https://pg-chain.com/python-module-class-method 2019/09/26 L151-179  
 https://snowtree-injune.com/2018/09/14/exception/#toc34 2019/09/25 L212-216  
 https://snowtree-injune.com/2018/12/13/global-nonlocal/#toc2 2019/09/25 L223-224  
-https://www.sejuku.net/blog/24672 2019/09/27 L231-240
-  
+https://www.sejuku.net/blog/24672 2019/09/27 L231-240  
+https://python.ms/namespace/ 2019/10/01 L291-
  
   
