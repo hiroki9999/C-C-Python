@@ -198,7 +198,7 @@ repr(): インタプリンタに読める表現を返す
 format()メソッド
 print内にある{}の中身を打ち込むことができる  
   
->>> for x in range(1, 11):
+'>>> for x in range(1, 11):'
 ...     print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
 ...
  1   1    1
