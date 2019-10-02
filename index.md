@@ -527,7 +527,7 @@ print('こんばんは')
 
   
   
-参考文献  
+# 参考文献  
 https://www.otsuka-shokai.co.jp/words/interpreter.html 2019/09/22 L14-22  
 http://blog.jojo.jp/?eid=1424790 2019/09/24 L57-60  
 https://eng-entrance.com/what-oop#i 2019/09/26 L151-170  
