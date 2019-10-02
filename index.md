@@ -332,16 +332,177 @@ print(pi)
   
 ここで示した三つの例は全て同じ3.141592653589793という結果を示します。
   
-次にクラスの中で定義されたものはインスタンスオブジェクトと呼ばれます。  
-実はインスタンスオブジェクトになれるものとそうでないものが存在します。
+次にインスタンスオブジェクトについて解説します。インスタンスオブジェクトとは変数に代入することができるもののことを指します。  
+実は今まで扱ってきたクラスオブジェクトも変数に代入できるためクラスオブジェクトはインスタンスオブジェクトでもあります。  
+インスタンスオブジェクトには二種類の属性名が存在します。一つ目がデータ属性、二つ目がメソッド属性です。  
+一つ目のデータ属性とは  
+x.counter = 1
+while x.counter < 10:
+    x.counter = x.counter * 2
+print(x.counter)
+del x.counter  
+  
+二つ目のメソッド属性とはappend,insert,remove,sortなどが挙げられます。  
+このデータ属性とメソッド属性で名前の衝突を起こすことがしばしばあります。その時にはデータ属性が優先的にプログラム内に保存されてしまうため注意が必要です。  
+  
+また、メソッドオブジェクトというものも存在します。  
+メソッドオブジェクトとは他の場所で保存しておいたメソッドを保存し呼び出すことができるオブジェクトのことです。  
+メソッドの初めの引数ではselfという引数がよく使われています。  
+  
+  
+では、最後にモジュールとクラスの違いについて解説します。  
+クラスはモジュールに二つの機能をつけたものと考えることができます。その機能とは
+1.インスタンスかしてオブジェクトを生成できること  
+2.クラスから他のクラスを継承できること  
+の二つです。
+  
+次にクラスを作ったが新しいクラスで同じ様なことを行いたい時には継承をすることでそれが可能になります。  
+具体的にはクラス名を定義する時に()を置きその中に継承をしたいクラス名を書きます。すると、前のクラスで設定していたメソッドをそのまま引き継ぐことができます。  
+class DerivedClassName(Base1):
+また、pythonでは以下の様に記述することで多重継承をすることもできます。  
+class DerivedClassName(Base1, Base2, Base3):  
+新しいクラス内では継承したクラスでも使われていた変数を上書き(override)もすることができます。  
+  
+次に、同じオブジェクト内からのみアクセスが可能なプライベート関数について解説します。
+Pythonでは  
+__Name  
+と名前を打つことでプライベート関数を設定することができます。
+このプライベート関数は
+と名前を打つことでプライベート関数を設定することができます。  
+  
+最後に、イテレータiteratprとジェネレータgeneratorについて学んでいきます。  
+  
+まず、イテレーターとは要素を一つ一つ取り出すことができるものを指します。  
+また、今まで学んできたlistやdictionaryをイテレーターのコンテナオブジェクトと呼びます。  
+コンテナオブジェクトを繰り返す(iterate)ことでイテレーターとして機能することができます。  
+イテレーターの使用方法はnext()やfor文を使うことによって生成することができます。  
+  
+実際にイテレーターを使うためにはイテレータプロトコルと呼ばれるオブジェクトを実装させる必要があります。  
+イテレータープロトコルとは__next()__,__iter__()のことであり、これらをdef文で定義します。  
+...     """整数を連番で提供するイテレータクラス"""
+...     def __init__(self, start, stop):
+...         self._counter = start
+...         self._stop = stop
+...     def __iter__(self):
+...         # 自分自身を返す
+...         return self
+...     def __next__(self):
+...         if self._counter > self._stop:
+...             # 最後まで到達したときは StopIteration 例外を上げる
+...             raise StopIteration()
+...         ret = self._counter
+...         self._counter += 1
+...         return ret
+...     def next(self):
+...         # Python 2 対応
+...         return self.__next__()
+
+次にイテレーターの定義は"iterator_object = iter()"と定義することでiterator_objectというイテレーターが定義されました。  
+  
+では、なぜイテレーターを使う必要があるのでしょうか。  
+理由は二つ存在し、一つはコンテナオブジェクトの表示を簡単にするため、二つ目はメモリの節約です。  
+  
+では、いよいよジェネレーターについてです。  
+ジェネレーターとはイテレーターを簡単に作るために作られたオブジェクトのことです。  
+returnの部分をyieldに変えるだけでジェネレーターとして機能を果たすことができます。  
+def mycounter(start, stop):
+...     counter = start
+...     while True:
+...         if counter > stop:
+...             break
+...         yield counter
+...         counter += 1
+    
+  
+# 標準ライブラリ  
+標準ライブラリとは・・・？  
+標準ライブラリとは何もしなくても使えるモジュール群のことを指します。  
+基本的に使いたいモジュールをimportすることで使うことができます。  
+授業で度々登場するmathモジュールなどが標準ライブラリの仲間です。  
+  
+osモジュールについて紹介していこうと思います。  
+osモジュールはimport osを打ち込むことでインストールすることができます。  
+肝心の機能はどの様なものがあるのでしょうか。  
+osモジュールの機能はOSの機能を利用するファイルを操作するものです。  
+簡単にいうと普段当たり前でやっていることをPython上で代わりに行ってくれるモジュールということです。  
+例えばos.wakl()モジュールではファイルやディレクトリの一覧を取得することができ、os.system()ではunixのコマンドをpythonで記述することができます。  
+また、os.path()モジュールは日頃からよく使うモジュールであるため覚えておくと便利です。  
+|Type|Purpose|Example|
+|---|---|---|
+|exist()|ファイル、ディレクトリの存在確認が可能|os.path.exisr()|
+|isdir()|ディレクトリの存在確認が可能|os.path.isdir()|
+|isfile()|ファイルの存在確認が可能|os.path.isfile()|
+|basename()|指定されたパスのファイル名を示す|os.path.basename()|  
+|dirname()|指定されたパスのファイル名を除いたものを示す|os.path.dirname()|
+|split()|指定されたパスのファイル名とそれまでのパスを示す|os.path.split()|
+|splitext()|指定されたパスのファイル名と拡張子を示す|os.path.splitext()|
+|join()|パスとファイル名などを結合することができる|os.path.join()|
+
+|Type|Purpose|Example|
+|---|---|---|
+|walk()|ファイルやディレクトリの一覧を取得|os.walk()|
+|sysrem()|UnixのコマンドをPythonで記述|os.system()|
+|listdir()|ファイルやディレクトリの一覧を確認|os.listdir()|
+|path()|上にて説明|os.path()|
+|environ()|環境変数の取得、書き込み、上書き|os.environ()|
+|mkdir()|ディレクトリの作成|os.mkdir()|
+|rename()|ファイル名を変更|os.rename()|
+|remove()|ファイルを削除|os.remove()|
 
   
-# イテレータiteratprとジェネレータgenerator
+また、osモジュールの他にもshutilモジュールというものも存在します。  
+shutilモジュールではosモジュールではファイルの操作を行います。  
+osモジュールとの違いはosモジュールではできなかったコピーや削除が可能であるということです。  
 
-とりあえず9まで
+|Type|Purpose|Example|
+|---|---|---|
+|copyfile(),copy()|ファイルをコピーする（ファイルの時はcopyfile()ディレクトリの時はcopy()）|shutil.copyfile(被コピー,コピー先)|
+|copyfileobj()|ファイル形式のコピー|shutil.copyfileobj()|
+|copytree()|ディレクトリのまるごとコピー|shutil.copytree()|
+|rmtree()|ディレクトリのまるごと削除|shutil.rmtree()|
+|move()|ディレクトリの移動、リネーム|shutil.move(移動元,移動先)|
+|make_archive()|zipなどのアーカイブ化|shutil.make_archive(名前,形式)|
+  
+  
+globモジュールはファイルやディレクトリを検索することができます。
 
+import glob
+ 
+path_list = glob.glob('test/*.txt')
+print(path_list)
 
+上のコードではtestというディレクトリの中にtxtファイルがどのくらいあるかを結果で示してくれます。  
+検索結果はこちら。  
+['test\\file1.txt', 'test\\file2.txt', 'test\\file3.txt']
+今回の結果ではfile1,file2,file3という三つのtxtファイルがみる借りました。
+  
+sysモジュールではコマンドライン引数を設定することができます。  
+コマンドライン引数とはターミナルコマンドライン上からプログラムを実行するときに設定する引数のことを指します。  
 
+まず、test.pyというファイルを作り次のコマンドを打ちます。
+import sys
+
+args = sys.argv
+
+print(args)
+print("第1引数：" + args[1])
+print("第2引数：" + args[2])
+print("第3引数：" + args[3])  
+  
+コマンド上で次のプログラムを打ちます。  
+python test.py a b c
+
+すると次の結果が返ってきます。  
+['test.py', 'a', 'b', 'c']
+第1引数：a
+第2引数：b
+第3引数：c  
+  
+  
+  
+  
+  
+  
 参考文献
 https://www.otsuka-shokai.co.jp/words/interpreter.html 2019/09/22 L14-22  
 http://blog.jojo.jp/?eid=1424790 2019/09/24 L57-60  
@@ -350,6 +511,9 @@ https://pg-chain.com/python-module-class-method 2019/09/26 L151-179
 https://snowtree-injune.com/2018/09/14/exception/#toc34 2019/09/25 L212-216  
 https://snowtree-injune.com/2018/12/13/global-nonlocal/#toc2 2019/09/25 L223-224  
 https://www.sejuku.net/blog/24672 2019/09/27 L231-240  
-https://python.ms/namespace/ 2019/10/01 L291-
-https://python.ms/namespace/scope/#_1-ざっくり全体像　2019/10/01 L301- 
-  
+https://python.ms/namespace/ 2019/10/01 L291-  
+https://python.ms/namespace/scope/#_1-ざっくり全体像　2019/10/01 L301-  
+https://blog.amedama.jp/entry/2017/11/23/213233 2019/10/02 L373-410  
+https://www.sejuku.net/blog/63651 2019/10/02 L423-434  
+https://narito.ninja/blog/detail/71/ 2019/10/02 L449-460  
+https://techacademy.jp/magazine/18928 2019/10/02 L463-473  
