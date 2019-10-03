@@ -139,13 +139,18 @@ Sequenceデータ型: list, tuple, rangeの
 
 # タプルtaple型とリストlist型
 タプル-taple型
+```Python
 t = 12345,67890,"hello"
 t[0]
-→12345
+```
+
+`12345`
 リスト-list型
+```Python
 l = [12345,67890,"hello"]
 l[0]
-→12345
+```
+`12345`
 違い：タプル型は不変、リスト型は可変である
 
 # モジュール
@@ -198,7 +203,7 @@ repr(): インタプリンタに読める表現を返す
 format()メソッド
 print内にある{}の中身を打ち込むことができる  
    
-'''Python  
+```Python  
 >>> for x in range(1, 11):'
 ...     print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
 ...
@@ -212,7 +217,7 @@ print内にある{}の中身を打ち込むことができる
  8  64  512
  9  81  729
 10 100 1000
-'''
+```
 
 文字列の手作業でのフォーマット
 
@@ -233,14 +238,14 @@ open(,): ファイルオブジェクトを開く。open(ファイル名,mode)wit
 |+|読み取り＋書き取り|
 
 with文: ファイルのオープンとクローズの処理を簡略化してくれる  
-'''Python
+```Python
 f = open("sample.txt", "r")
 print(f.read())
 f.close()
 ↓
 with open("sample.txt", "r") as f:
     print(f.read())
-'''   
+```
 with文を使うためには対応したクラスを作る必要があります。  
 対応したクラスは_enter_()メソッドと_exit_()メソッドを定義することで作ることができます。  
   
@@ -253,7 +258,8 @@ exceptionではsyntax error以外の全てのエラーを示しています。�
 しかし、pythonではプログラム上でexceptionを起こすことが正しい場合も存在します。ではexceptionが起こった時にはどの様に処理することが正しいのでしょうか。     
   
 Pythonではexceptionを処理するためにtry文を使ってプログラムを書くことができます。  
-try文では例外処理を正すことが目的であるので基本的にループを利用します。  
+try文では例外処理を正すことが目的であるので基本的にループを利用します。
+```Python
 >>> while True:  
 ...     try:  
 ...         x = int(input("Please enter a number: "))  
@@ -262,31 +268,36 @@ try文では例外処理を正すことが目的であるので基本的にル�
 ...         print("Oops!  That was no valid number.  Try again...")  
 ...     else:  
 ...         print("it's fine!")   
+```
   
 try文には複数のexcept（例外処理）をつけることができ、実行するプログラムの指定を行うことができexceptは例外の名称を指定してもしなくてもます。  
 
 また、try文ではif文と同様にelseを用いることができるためexceptionが起こらないときの対応が可能です。  
   
 raise文: 例外を意図的に発生させることができる。except節の中で引数のないraiseを用いることでexceptが再送出されます。つまり、定義したexceptionがもう一度発生します。
+```Python
 try:    
     raise ZeroDivisionError('ゼロによる除算')  
 except ZeroDivisionError as eee:  
     print('eee:',eee)  
 　　 raise  
-  
-→eee: ゼロによる除算  
+```  
+`eee: ゼロによる除算`
+```Python
 Traceback (most recent call last):  
   File "/Users/hiroki/Documents/GitHub/mypythonproject/test2.py", line 2, in <module>  
     raise ZeroDivisionError('ゼロによる除算')  
 ZeroDivisionError: ゼロによる除算    
-   
+```
   
+```  
 try:    
     raise ZeroDivisionError('ゼロによる除算')  
 except ZeroDivisionError as eee:  
     print('eee:',eee)  
-
-→eee: ゼロによる除算  
+```
+  
+`eee: ゼロによる除算`
     
 →基本的に大きなプログラムなどを作ったときに例外を処理するためのクラスを作ってその中で定義するときに例外クラスを使用する。  
   
@@ -322,17 +333,20 @@ gloval文: localスコープ内からglovalスコープ内の変数の値を変�
 今回はその三つの方法をmathクラスのpiを呼び出すものとして解説していきます。
   
 (1)  
+```
 import math  
 print(math.pi)  
-  
+```  
 (2)  
+```
 from math import pi  
 print(pi)  
-  
+  ```
 (3)  
+```
 from math import *  
 print(pi)  
-  
+  ```
 ここで示した三つの例は全て同じ3.141592653589793という結果を示します。
   
 次にインスタンスオブジェクトについて解説します。インスタンスオブジェクトとは変数に代入することができるもののことを指します。  
@@ -382,6 +396,8 @@ __Name
   
 実際にイテレーターを使うためにはイテレータプロトコルと呼ばれるオブジェクトを実装させる必要があります。  
 イテレータープロトコルとは__next()__,__iter__()のことであり、これらをdef文で定義します。  
+  
+```Python
 ...     """整数を連番で提供するイテレータクラス"""
 ...     def __init__(self, start, stop):
 ...         self._counter = start
@@ -399,6 +415,7 @@ __Name
 ...     def next(self):
 ...         # Python 2 対応
 ...         return self.__next__()
+```
 
 次にイテレーターの定義は"iterator_object = iter()"と定義することでiterator_objectというイテレーターが定義されました。  
   
@@ -407,7 +424,9 @@ __Name
   
 では、いよいよジェネレーターについてです。  
 ジェネレーターとはイテレーターを簡単に作るために作られたオブジェクトのことです。  
-returnの部分をyieldに変えるだけでジェネレーターとして機能を果たすことができます。  
+returnの部分をyieldに変えるだけでジェネレーターとして機能を果たすことができます。   
+  
+```Python
 def mycounter(start, stop):
 ...     counter = start
 ...     while True:
@@ -415,7 +434,7 @@ def mycounter(start, stop):
 ...             break
 ...         yield counter
 ...         counter += 1
-    
+```    
   
 # 標準ライブラリ  
 標準ライブラリとは・・・？  
@@ -429,7 +448,8 @@ osモジュールはimport osを打ち込むことでインストールするこ
 osモジュールの機能はOSの機能を利用するファイルを操作するものです。  
 簡単にいうと普段当たり前でやっていることをPython上で代わりに行ってくれるモジュールということです。  
 例えばos.wakl()モジュールではファイルやディレクトリの一覧を取得することができ、os.system()ではunixのコマンドをpythonで記述することができます。  
-また、os.path()モジュールは日頃からよく使うモジュールであるため覚えておくと便利です。  
+また、os.path()モジュールは日頃からよく使うモジュールであるため覚えておくと便利です。 
+  
 |Type|Purpose|Example|
 |---|---|---|
 |exist()|ファイル、ディレクトリの存在確認が可能|os.path.exisr()|
@@ -440,7 +460,7 @@ osモジュールの機能はOSの機能を利用するファイルを操作す�
 |split()|指定されたパスのファイル名とそれまでのパスを示す|os.path.split()|
 |splitext()|指定されたパスのファイル名と拡張子を示す|os.path.splitext()|
 |join()|パスとファイル名などを結合することができる|os.path.join()|
-
+  
 |Type|Purpose|Example|
 |---|---|---|
 |walk()|ファイルやディレクトリの一覧を取得|os.walk()|
@@ -456,7 +476,7 @@ osモジュールの機能はOSの機能を利用するファイルを操作す�
 また、osモジュールの他にもshutilモジュールというものも存在します。  
 shutilモジュールではosモジュールではファイルの操作を行います。  
 osモジュールとの違いはosモジュールではできなかったコピーや削除が可能であるということです。  
-
+  
 |Type|Purpose|Example|
 |---|---|---|
 |copyfile(),copy()|ファイルをコピーする（ファイルの時はcopyfile()ディレクトリの時はcopy()）|shutil.copyfile(被コピー,コピー先)|
@@ -468,22 +488,22 @@ osモジュールとの違いはosモジュールではできなかったコピ�
   
   
 globモジュールはファイルやディレクトリを検索することができます。
-
+```Python
 import glob
  
 path_list = glob.glob('test/*.txt')
 print(path_list)
-
+```
 上のコードではtestというディレクトリの中にtxtファイルがどのくらいあるかを結果で示してくれます。  
 検索結果はこちら。  
-['test\\file1.txt', 'test\\file2.txt', 'test\\file3.txt']
+`['test\\file1.txt', 'test\\file2.txt', 'test\\file3.txt']`
 今回の結果ではfile1,file2,file3という三つのtxtファイルがみる借りました。
   
 sysモジュールではコマンドライン引数を設定することができます。  
 コマンドライン引数とはターミナルコマンドライン上からプログラムを実行するときに設定する引数のことを指します。  
 
 まず、test.pyというファイルを作り次のコマンドを打ちます。
-'''Python
+```Python
 import sys
 
 args = sys.argv
@@ -492,7 +512,7 @@ print(args)
 print("第1引数：" + args[1])
 print("第2引数：" + args[2])
 print("第3引数：" + args[3])  
-'''  
+```
 コマンド上で次のプログラムを打ちます。  
 python test.py a b c
 
@@ -505,11 +525,15 @@ python test.py a b c
 このように自分で指定したファイルの中に表示させたプログラムをターミナルなどコマンドライン上で表示することができる機能をコマンドライン引数と呼びます。
 同じようなものにargparseモジュールというものが存在します。  
 
-sysモジュールには他にもsys.exit()という関数があり、これを使うことでシステムを強制的に終わらせることができます。
+sysモジュールには他にもsys.exit()という関数があり、これを使うことでシステムを強制的に終わらせることができます。  
+  
+```Python
 print('おはよう')
 print('こんにちは')
 sys.exit()
 print('こんばんは')  
+```  
+  
   
 続いてreモジュールについて解説します。  
 reモジュールは正規表現の処理を行うことができます。  
@@ -525,12 +549,12 @@ findall関数
 match関数では指定した文字が文字列の先頭に存在するかを判定し、search関数では指定した文字一つが文字列に存在するかを判定し、fineall関数では指定した複数の文字が存在しているかを判定することができます。  
   
 プログラムの書き方は以下の通りです。    
-"""Python  
+```Python  
 import re  
 address = "123-7777 東京都千代田区"  
 postCode = re.match('[0-9]{3}-[0-9]{4}' , address)  
 print (postCode)  
-"""  
+``` 
   
   
     
