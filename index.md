@@ -138,20 +138,21 @@ Sequenceデータ型: list, tuple, rangeの
 |s.count(x)|
 
 # タプルtaple型とリストlist型
-タプル-taple型
+タプル-taple型  
 ```Python
 t = 12345,67890,"hello"
 t[0]
 ```
-
-`12345`
-リスト-list型
+  
+`12345`  
+リスト-list型  
 ```Python
 l = [12345,67890,"hello"]
 l[0]
 ```
-`12345`
-違い：タプル型は不変、リスト型は可変である
+  
+`12345`  
+違い：タプル型は不変、リスト型は可変である  
 
 # モジュール
 長いプログラムや複数のプログラムを動かすためにはスクリプトの作成が必須でありそのためにはモジュールという概念を知る必要があります。  
@@ -173,9 +174,9 @@ importの後に*をつけるとモジュール内のもの全てがインポー�
   
 ここに関してはクラスでより深く言及していく予定です。  
   
-import as: importした内容をasの後に書く名前でも定義できるようにしたもの。
-from import as も同様に適宜できる。  
-
+import as: importした内容をasの後に書く名前でも定義できるようにしたもののことを指します。
+from import as も同様です。  
+　　
 dir()関数: モジュール内の名前の定義を調べる    
 パッケージ: モジュールの名前を構造化する手段。複数のプログラマが協力するときに有効  
 新しい概念であるパッケージが出現しました。  
@@ -184,9 +185,9 @@ dir()関数: モジュール内の名前の定義を調べる
 よくわからないので図にしてみると  
 パッケージ＞モジュール＞クラス＞メソッド  
 ということになります。
-
+　　
 使用例：import sound.effects.echo
-
+　　
 # 入力と出力
 
 式文  
@@ -512,15 +513,18 @@ print(args)
 print("第1引数：" + args[1])
 print("第2引数：" + args[2])
 print("第3引数：" + args[3])  
-```
+```  
+  
 コマンド上で次のプログラムを打ちます。  
 python test.py a b c
 
-すると次の結果が返ってきます。  
+すると次の結果が返ってきます。 
+```Python
 ['test.py', 'a', 'b', 'c']
 第1引数：a
 第2引数：b
 第3引数：c  
+```  
   
 このように自分で指定したファイルの中に表示させたプログラムをターミナルなどコマンドライン上で表示することができる機能をコマンドライン引数と呼びます。
 同じようなものにargparseモジュールというものが存在します。  
@@ -548,19 +552,34 @@ findall関数
   
 match関数では指定した文字が文字列の先頭に存在するかを判定し、search関数では指定した文字一つが文字列に存在するかを判定し、fineall関数では指定した複数の文字が存在しているかを判定することができます。  
   
-プログラムの書き方は以下の通りです。    
+プログラムの書き方は以下の通りです。  
+  
+match関数  
 ```Python  
 import re  
 address = "123-7777 東京都千代田区"  
 postCode = re.match('[0-9]{3}-[0-9]{4}' , address)  
 print (postCode)  
-``` 
-  
-  
-    
-  
-最後にmathモジュールについて解説します。    
+```   
+serch関数
+```Python  
+import re
+address2 = "東京都千代田区 123-7777"
+postCode = re.search('[0-9]{3}-[0-9]{4}' , address2)
+print (postCode)  
+```  
+findall関数  
+```Python
+import re
+address3 = "東京都千代田区 123-7777, 東京都世田谷区 567-9999"
+postCodeList = re.findall('[0-9]{3}-[0-9]{4}' , address3)
+if postCodeList:
+    print (postCodeList)
+```  
 
+次に[math](https://www.itbook.info/network/python09.html),[random](https://www.sejuku.net/blog/20915),[statistics](https://algorithm.joho.info/programming/python/statistics-mean-median-mode-pvariance/)モジュールについて解説します。  
+[mathモジュール](https://www.itbook.info/network/python09.html)はおなじみのモジュールのため関数の種類と機能のみ紹介します。  
+   
 |Type|Purpose|
 |---|---|
 |sqrt()|平方根を示す|
@@ -571,8 +590,77 @@ print (postCode)
 |log()|自然対数を示す|
 |pow()|何乗を示す|
 |sin(),cos(),tan()|サイン、コサイン、タンジェントを示す|
+  
+[randomモジュール](https://www.sejuku.net/blog/20915)ではその名の通りrandomな数字や文字列を表示してくれます。  
+コードは以下の通りです。  
+```Python
+import random
+
+num = random.randint(1,10)
+print(num)
+```  
+`8`
+実はrandomモジュールにも関数がいくつか存在します。上のプログラムではrandint関数を使用しました。  
+  
+|Type|Purpose|Example|
+|---|---|---|
+|random()|0.0-1.0の範囲のfloat型のランダムな値を示す|tandom.random()|
+|uniform()|指定した範囲のfloat型のランダムな値を示す|random.uniform(2.0,5.0)|
+|randint()|指定した範囲のint型のランダムな値を示す|random.randint(1,10)|
+|choice()|リストや文字列などのシーケンス型の中から一つをランダムに示す|random.choice(mylist)|
+|shuffle()|リストや文字列などシーケンス型のオブジェクトをランダムにシャッフルする|random.shuffle(mylist)|  
+  
+  
+[statisticsモジュール](https://algorithm.joho.info/programming/python/statistics-mean-median-mode-pvariance/)では平均、中央値、最頻値、分散、標準偏差などを計算することができます。  
+  
+|Type|Purpose|
+|---|---|
+|mean()|平均を示す|
+|harmonicmean()|調和平均を示す|
+|median()|中央値を示す|
+|mode()|最頻値を示す|
+|pvariance()|母分散を示す|
+|pstdev()|母集団の標準偏差を示す|
+|variance()|不偏分散を示す|
+|stdev()|標本標準偏差を示す|  
+  
+コードは以下の通りです。  
+```Python
+import statistics
+import math
+
+data = [1, 2, 3, 4, 5]
+
+mean = statistics.mean(data)
+print(mean) # 3
 
 
+median = statistics.median(data)
+print(median) # 3
+
+
+median_low = statistics.median_low(data)
+print(median_low) # 3
+
+median_high = statistics.median_high(data)
+print(median_high) # 3
+
+pvariance = statistics.pvariance(data)
+print(pvariance) # 2
+
+pstdev = statistics.pstdev(data)
+print(pstdev) # 1.4142135623730951
+
+variance = statistics.variance(data)
+print(variance) # 2.5
+
+stdev = statistics.stdev(data)
+print(stdev) # 1.5811388300841898
+```
+  
+続いてurllib.requestモジュールとsmtplibモジュールについて  
+  
+  
   
 # 仮想空間とパッケージ   
 
