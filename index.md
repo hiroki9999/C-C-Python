@@ -532,16 +532,16 @@ print('こんばんは')
   
   
 # 参考文献  
-https://www.otsuka-shokai.co.jp/words/interpreter.html 2019/09/22 L14-22  
-http://blog.jojo.jp/?eid=1424790 2019/09/24 L57-60  
-https://eng-entrance.com/what-oop#i 2019/09/26 L151-170  
-https://pg-chain.com/python-module-class-method 2019/09/26 L151-179  
-https://snowtree-injune.com/2018/09/14/exception/#toc34 2019/09/25 L212-216  
-https://snowtree-injune.com/2018/12/13/global-nonlocal/#toc2 2019/09/25 L223-224  
-https://www.sejuku.net/blog/24672 2019/09/27 L231-240  
-https://python.ms/namespace/ 2019/10/01 L291-  
-https://python.ms/namespace/scope/#_1-ざっくり全体像　2019/10/01 L301-  
-https://blog.amedama.jp/entry/2017/11/23/213233 2019/10/02 L373-410  
-https://www.sejuku.net/blog/63651 2019/10/02 L423-434  
-https://narito.ninja/blog/detail/71/ 2019/10/02 L449-460  
-https://techacademy.jp/magazine/18928 2019/10/02 L463-473  
+(https://www.otsuka-shokai.co.jp/words/interpreter.html) 2019/09/22 L14-22  
+(http://blog.jojo.jp/?eid=1424790) 2019/09/24 L57-60  
+(https://eng-entrance.com/what-oop#i) 2019/09/26 L151-170  
+(https://pg-chain.com/python-module-class-method) 2019/09/26 L151-179  
+(https://snowtree-injune.com/2018/09/14/exception/#toc34) 2019/09/25 L212-216  
+(https://snowtree-injune.com/2018/12/13/global-nonlocal/#toc2) 2019/09/25 L223-224  
+(https://www.sejuku.net/blog/24672) 2019/09/27 L231-240  
+(https://python.ms/namespace/) 2019/10/01 L291-  
+(https://python.ms/namespace/scope/#_1-ざっくり全体像)　2019/10/01 L301-  
+(https://blog.amedama.jp/entry/2017/11/23/213233) 2019/10/02 L373-410  
+(https://www.sejuku.net/blog/63651) 2019/10/02 L423-434  
+(https://narito.ninja/blog/detail/71/) 2019/10/02 L449-460  
+(https://techacademy.jp/magazine/18928) 2019/10/02 L463-473  
