@@ -524,13 +524,13 @@ findall関数
   
 match関数では指定した文字が文字列の先頭に存在するかを判定し、search関数では指定した文字一つが文字列に存在するかを判定し、fineall関数では指定した複数の文字が存在しているかを判定することができます。  
   
-プログラムの書き方は以下の通りです。  
-'''Python
-import re
-address = "123-7777 東京都千代田区"
-postCode = re.match('[0-9]{3}-[0-9]{4}' , address)
-print (postCode)
-'''
+プログラムの書き方は以下の通りです。    
+'''Python  
+import re  
+address = "123-7777 東京都千代田区"  
+postCode = re.match('[0-9]{3}-[0-9]{4}' , address)  
+print (postCode)  
+'''  
   
   
     
