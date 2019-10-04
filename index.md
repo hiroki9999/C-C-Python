@@ -3,14 +3,11 @@
 2.
 3.
 
-# Programingとは
-Programingとは
 # GitHubとは
 GitHubとは何なのか公式ガイドに以下のうように定義されています。  
 GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.  
 英語が得意なみなさんには簡単に理解ができると思いますが、簡単にいうとGitHubとは自身がプログラミングを他のプログラマーにも共有することができるサービスのことを指します。  
-では、具体的にGitHubでは何ができるのでしょうか。
-
+  
 では、早速プログラミング言語について学んでいきます。
 まず、プログラミング言語は大きく分けて二つの言語が存在することを理解する必要があります。  
 一つはインタプリンタ言語、もう一つはコンパイラ言語です。  
@@ -26,8 +23,8 @@ GitHub is a code hosting platform for version control and collaboration. It lets
 
 # Pythonについて
 前の章でも説明したようにPythonはインタプリンタ言語であるためはじめにインタプリンタ（通訳者）を起動する必要があります。  
-#？？どのインタプリンタを利用するのか？？
-2.1.1引数の受け渡し
+#？？どのインタプリンタを利用するのか？？  
+2.1.1引数の受け渡し  
 
 # Pythonの使い方
 プログラミングを始めるうえで最も大切なことは
