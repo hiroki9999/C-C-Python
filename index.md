@@ -83,16 +83,20 @@ Pythonは計算機だけでなく文字を打つことも可能です。
 以下割愛の予定。
 https://docs.python.org/ja/3/tutorial/introduction.html#id4 22/09/19
 Pythonの機能
-スライス: 指定した番号の文字を表示する
-len()関数: 文字列の長さを表示する
-list型: []で囲んだ値（数字、文字）を変数に保存する。
-if文:  
-else節:   
-for文:   
-range()関数:  
-break文:  
-continue文:  
-pass文:  
+
+|Type|Purpose|Example|
+|---|---|---|
+|スライス|指定した番号の文字を表示する||
+|len()| 文字列の長さを表示する||
+|list型|[]で囲んだ値（数字、文字）を変数に保存する||
+|if|||
+|else|||   
+|for|||
+|range()|||
+|break|ifやwhileなどの繰り返しを終わらせる|break|
+|continue|ifやwhileなどの繰り返しをスキップできる|continue|
+|pass|何もしない。文法上必要な時に使う|pass|
+
 # 関数の定義
 def
 1.デフォルト引数値  
