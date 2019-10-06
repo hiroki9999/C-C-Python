@@ -71,6 +71,11 @@ int型とfloat型の計算ではfloat型が優先されるため2*2*3.5=14.0と�
 プログラミング内では同じ数字や表現を何度も使うことがほとんどです。  
 そのために"="を利用します。  
 
+|Type|Purpose|Example|Result|
+|---|---|---|---|
+|isdigit()|数字かどうかを評価する。float型はFalse|print"0".isdigit()|True|
+|
+
 # Pythonで文字を打つ
 Pythonは計算機だけでなく文字を打つことも可能です。  
 文字列を記述する方法は''単引用符、""二重引用符で文字を囲む二種類が存在します。  
@@ -660,6 +665,13 @@ print(stdev) # 1.5811388300841898
 ```
   
 続いてurllib.requestモジュールとsmtplibモジュールについて  
+  
+timeモジュール
+
+|Type|Purpose|Example|Result|
+|---|---|---|---|
+|sleep()|〜秒間プログラムを停止させる|time.sleep(2)|2秒止まる|
+
   
   
   
