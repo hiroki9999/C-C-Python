@@ -244,24 +244,66 @@ open(,): ファイルオブジェクトを開く。open(ファイル名,Mode)wit
 |b|バイナリモード|open("sample.txt","b")|
 |t|テキストモード（デフォルト）|open("sample.txt","t")|
 |+|読み取り＋書き取り|open("sample.txt","w+")|
-
-read()メソッド: ファイルを読み込み、文字列データに対して処理を行う  
   
 sample.txt
 ```Python
 First line
+Second line
+Third line
+Forth line
 ```
+  
+[read()メソッド](https://yukun.info/python-file): ファイルを読み込み、文字列データに対して処理を行う  
+  
 ```Python
 f = open("sample.txt" , "r")
-read(1)
-read(2)
-read()
+data1 = f.readline(1)
+data2 = f.readline(2)
+data = f.readline()
+
+print(data1)
+print(data2)
+print(data)
 ```
-→
+↓
 F
 ir
 Fist line  
   
+readline()メソッド: 一行ごとにファイルを読み込み処理を行う
+```Python
+f = open("sample.txt","r")
+data1 = f.readline(1)
+data2 = f.readline(2)
+data = f.readline()
+data3 = f.readline()
+data4 = f.readline()
+f.close()
+
+print(data1)
+print(data2)
+print(data)
+print(data3)
+print(data4)
+```
+
+readlines()メソッド: ファイルを読み込み一行ごとに処理を行う
+```Python
+f = open("sample.txt","r")
+data1 = f.readlines(1)
+data2 = f.readlines(2)
+data = f.readlines()
+
+f.close()
+
+print(data1)
+print(data2)
+print(data)
+```
+→
+['First line\n']
+['Secand line\n']
+['Third line\n']
 writelines()メソッド: ファイルの内容を書くことができる  
   
 tell()メソッド: ファイルの場所を示す
@@ -277,7 +319,7 @@ seek()メソッド: 好きな場所からファイルを開始することがで
 
 ```
 
-with文: ファイルのオープンとクローズの処理を簡略化してくれる  
+[with文](https://note.nkmk.me/python-file-io-open-with/): ファイルのオープンとクローズの処理を簡略化してくれる  
 ```Python
 f = open("sample.txt", "r")
 print(f.read())
