@@ -234,15 +234,48 @@ str.center(): 中央寄せ
 str.zfill(): 左側をゼロ詰め  
 　　
 ファイルの読み書き
-open(,): ファイルオブジェクトを開く。open(ファイル名,mode)with文を使うのがおすすめ
-|Mode|Purpose|
-|---|---|
-|r|読み取り（デフォルト）|
-|w|書き込み|
-|a|生成？|
-|b|バイナリモード|
-|t|テキストモード（デフォルト）|
-|+|読み取り＋書き取り|
+open(,): ファイルオブジェクトを開く。open(ファイル名,Mode)with文を使うのがおすすめ  
+  
+|Mode|Purpose|Example|
+|---|---|---|
+|r|読み取り（デフォルト）|open("sample.txt","r")|
+|w|書き込み|open("sample.txt","w")|
+|a|生成？|open("sample.txt","a")|
+|b|バイナリモード|open("sample.txt","b")|
+|t|テキストモード（デフォルト）|open("sample.txt","t")|
+|+|読み取り＋書き取り|open("sample.txt","w+")|
+
+read()メソッド: ファイルを読み込み、文字列データに対して処理を行う  
+  
+sample.txt
+```Python
+First line
+```
+```Python
+f = open("sample.txt" , "r")
+read(1)
+read(2)
+read()
+```
+→
+F
+ir
+Fist line  
+  
+writelines()メソッド: ファイルの内容を書くことができる  
+  
+tell()メソッド: ファイルの場所を示す
+37    
+```Python
+f = open("sample.txt","r")
+f.tell()
+
+```
+seek()メソッド: 好きな場所からファイルを開始することができる
+```Python
+
+
+```
 
 with文: ファイルのオープンとクローズの処理を簡略化してくれる  
 ```Python
