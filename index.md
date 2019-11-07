@@ -91,13 +91,14 @@ Pythonの機能
 
 |Type|Purpose|Example|
 |---|---|---|
-|スライス|指定した番号の文字を表示する||
-|len()| 文字列の長さを表示する||
-|list型|[]で囲んだ値（数字、文字）を変数に保存する||
-|if|||
-|else|||   
-|for|||
-|range()|||
+|slice|指定した番号の文字を表示する||
+|len()| ()内で示した変数の文字列の長さを表示する|len(x)|
+|list型|[]で囲んだ値（数字、文字）を指定した変数に保存する|list|
+|if文|条件を示し条件にあった場合if文内のコードを実行させる|if x<5:|
+|elif文|if文と並列して使われ、if文の条件外かつelif文の条件にあった場合コードを実行させる|elif x<10:|
+|else|if、elif文などと並列して使われ、ifの条件外の時にコードを実行させる|else:|
+|for文|反復を実行させる|for i in list:|
+|range(x,y,z)関数|()内の数列を生成する。初めの数字をx、終わりの数字をy、z毎の数字を示す|range(1,10,2)|
 |break|ifやwhileなどの繰り返しを終わらせる|break|
 |continue|ifやwhileなどの繰り返しをスキップできる|continue|
 |pass|何もしない。文法上必要な時に使う|pass|
@@ -112,19 +113,20 @@ def
 
 |type|purpose|example|
 |---|---|---|
-|list.append()|
-|list.extend() 
-|list.insert(,) 
-|list.remove() 
-|list.pop([])  
-|list.clear()  
-|list.index()  
-|list.count()  
-|list.sort()   
-|list.reverse()
-|list.copy()   
+|list.append(x)|リスト末に新たな要素xを追加する(変数不可)|list.append(5)|
+|list.extend(x)|リスト末に新たな要素xを追加する(変数可)|list.extend(x)|
+|list.insert(i,x)|指定した位置iに新たな要素xを追加する|list.insert(0,0)|
+|list.remove(x)|リスト内にある要素xを削除する|list.remove(5)|
+|list.pop([i])|リスト内の指定された位置iにある要素を削除し表示する|list.pop([0])
+|a.pop()|リスト末の要素を削除して表示する|a.pop()|
+|list.clear()|リスト内の全ての要素を削除する|list.clear()|(del a[]と同等)
+|list.index(x[s[e]])|リスト内でxと等しい値を持つ要素の位置を表示する[s[e]]ではsからeまでの範囲内でxの位置を示す|list.index(2)|
+|list.count(x)|リスト内でのxの出現回数を表示する|list.count(1)|
+|list.sort(key=Npme, reverse=False)|リストの項目を||
+|list.reverse()|リストの順序を逆にする|list.reverse()|
+|list.copy()|リストのコピーを示す|list.copy|(a[:]と同等)
 
-del文:  
+del文: listなどの内容を削除することができる。  
 # Sequenceデータ型
 Sequenceデータ型: list, tuple, rangeの  
 
